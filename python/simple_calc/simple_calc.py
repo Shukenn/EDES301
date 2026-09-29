@@ -70,13 +70,22 @@ Error conditions:
 
 import operator
 
+try:
+    input = raw_input
+except NameError:
+    pass
+
 operators = {
     # Dictionary syntax:  "key" : "value"
     #   i.e. "function" : operator.<function>
     "+" : operator.add,
     "-" : operator.sub,
     "*" : operator.mul,
-    "/" : operator.truediv
+    "/" : operator.truediv,
+    "%"  : operator.mod,
+    "**" : operator.pow,
+    ">>" : operator.rshift,
+    "<<" : operator.lshift
 }
 
 
