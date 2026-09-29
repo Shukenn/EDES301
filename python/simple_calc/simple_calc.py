@@ -67,9 +67,16 @@ Error conditions:
 
 # NOTE - Global variable to map an operator string (e.g. "+") to 
 # NOTE - the appropriate function.
+
+import operator
+
 operators = {
     # Dictionary syntax:  "key" : "value"
     #   i.e. "function" : operator.<function>
+    "+" : operator.add,
+    "-" : operator.sub,
+    "*" : operator.mul,
+    "/" : operator.truediv
 }
 
 
@@ -87,12 +94,17 @@ def get_user_input():
     try:
         # NOTE - Use "pass" statements to allow code to be run without having to 
         # NOTE - fill out the contents.  This pass statement should be removed    
-        pass
         
         # NOTE - User input is generally returned as a string and must be translated.
+        number1 = float(input("Enter first number : "))
+        number2 = float(input("Enter second number: "))
+        op      = input("Enter function (valid values are +, -, *, /): ")
+        
+        func    = operators.get(op)
     except:
         print("Invalid Input")
         return (None, None, None)
+    return (number1, number2, func)
 
 # End def
 
@@ -121,5 +133,12 @@ if __name__ == "__main__":
 
     # NOTE - Use "pass" statements to allow code to be run without having to 
     # NOTE - fill out the contents.  This pass statement should be removed    
-    pass
+    while True:
+        (num1, num2, func) = get_user_input()
+        
+        if (num1 == None) or (num2 == None) or (func == None):
+            print("Invalid input")
+            break
+        
+        print(func(num1, num2))
 
