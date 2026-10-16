@@ -158,7 +158,7 @@ class CombinationLock():
             print("unlock()")
             
         # Set LEDs
-        self.red_led.on()
+        self.red_led.off()
         self.green_led.on()
 
         # Set servo to "unlocked"
@@ -190,7 +190,7 @@ class CombinationLock():
         self.display.update(value)
         
         # Return value
-        return 0
+        return value
 
     # End def
 
