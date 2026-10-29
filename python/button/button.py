@@ -199,7 +199,7 @@ class Button():
         #   of the class (i.e. we are executing the while loop while the 
         #   button is not being pressed)
         #
-        while(PIO.input(self.pin) == self.unpressed_value):
+        while(GPIO.input(self.pin) == self.unpressed_value):
         
             if self.unpressed_callback is not None:
                 self.unpressed_callback_value = self.unpressed_callback()
